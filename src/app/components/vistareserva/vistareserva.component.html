@@ -1,0 +1,44 @@
+<div class="container">
+  <form #forma="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+          <div class="col">
+              <label>Fechas origen / fecha vuelta</label>
+              <input type="date" class="form-control" [(ngModel)]="reserva.fecha" name="fecha">
+          </div>
+      </div>
+      <br>
+      <hr>
+      <div class="form-row">
+          <div class="col">
+                  <select id="inputState" class="form-control">
+                          <option value="santiago" >Hotel Santiago Veranum</option>
+                          <option value="viña" >Hotel Viña del Mar Veranum</option>
+                  </select>
+          </div>
+          <div class="col">
+              <input type="text" class="form-control" placeholder="Rut" name="idUsuario" [(ngModel)]="reserva.id_usuario" >
+          </div>
+      </div>
+      <br>
+      <hr>
+      <div class="form-row">
+              <div class="col">
+                      <select id="habitacion" class="form-control" [(ngModel)]="reserva.id_habitacion" name="idHabitacion" [(value)]="selected">
+                              <option value="selected">Tipo de habitación</option>
+                              <option value=1>Suit</option>
+                              <option value=2>Doble</option>
+                      </select>
+              </div>
+              <div class="col">
+                  <input  value="dias" type="number" class="form-control" placeholder="Dias" name="dias" [(ngModel)]="reserva.dias">
+              </div>
+          </div>
+          <br>
+         <div class="col-md-auto">
+              <input class="form-control" type="submit" value="Realizar Cambios" class="btn btn-outline-success">
+         </div>
+  </form>
+</div>
+<br>
+<hr>
+<app-footer></app-footer> 

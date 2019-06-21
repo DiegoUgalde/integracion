@@ -1,0 +1,50 @@
+<div class="container">
+    <form #forma="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="col">
+                <label>Fechas origen / fecha vuelta</label>
+                <input type="date" class="form-control" [(ngModel)]="reserva.fecha" name="fecha">
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="form-row">
+            <div class="col">
+                <label>Lugar</label>
+                    <select id="inputState" class="form-control" >
+                            <option value="santiago">Hotel Santiago Veranium</option>
+                            <option value="viña">Hotel Viña del Mar Veranium</option>
+                    </select>
+            </div>
+            <div class="col">
+                <label>Rut</label>
+                <input type="text" class="form-control" placeholder="Rut" name="idUsuario" [(ngModel)]="reserva.id_usuario" >
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="form-row">
+                <div class="col">
+                    <label>Tipo de Habitación</label>
+                        <select id="habitacion" class="form-control" [(ngModel)]="reserva.id_habitacion" name="id_habitacion">
+                                <option selected="selected" >Tipo de habitación</option>
+                                <option value=1>Suit</option>
+                                <option value=2>Doble</option>
+                        </select>
+                </div>
+                <div class="col">
+                    <label>Cantidad de días</label>
+                    <input  value="dias" type="number" class="form-control" placeholder="Dias" name="dias" [(ngModel)]="reserva.dias">
+                </div>
+            </div>
+            <br>
+           <div class="form-row" ng-init="myVar = 'http://localhost:8080/ApiHoteleria/transbank.php'">
+                <input class="form-control" type="submit" value="Reservar" class="btn btn-outline-primary ">   
+                <button (click)=onSubmit() class="btn btn-primary" > <a href="http://localhost:8080/ApiHoteleria/transbank.php"  target="_blank"> Reservar</a></button>
+           </div>
+    </form>
+
+</div>
+<br>
+<hr>
+<app-footer></app-footer> 
