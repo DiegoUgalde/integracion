@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Params, ActivatedRoute } from '@angular/router';
+import { SnackbarService } from 'ngx-snackbar';
 
 @Component({
   selector: 'app-protegida',
@@ -23,7 +24,8 @@ export class ProtegidaComponent implements OnInit {
     private auth: AuthService, 
     private reservaService: ReservaService,
     private _modalService: NgbModal,
-    private _activateRoute: ActivatedRoute
+    private _activateRoute: ActivatedRoute,
+    private snackbarService: SnackbarService
     ) 
     { 
       
@@ -56,6 +58,32 @@ export class ProtegidaComponent implements OnInit {
       }
     }
 
+    add(){
+        const _this = this;
+        this.snackbarService.add({
+          msg: '<strong>Message sent.</strong>',
+          timeout: 5000,
+          action: {
+            text: 'Undo',
+            onClick: (snack) => {
+              console.log('dismissed: ' + snack.id);
+              
+              _this.undo();
+            },
+          },
+          onAdd: (snack) => {
+            console.log('added: ' + snack.id);
+          },
+          onRemove: (snack) => {
+            console.log('removed: ' + snack.id);
+          }
+        });
+    }
+
+  undo() {
+    throw new Error("Method not implemented.");
+  }
+
     eliminarReserva(id){
         this.id = id
           this.reservaService.eliminarReserva(id).subscribe(
@@ -65,7 +93,9 @@ export class ProtegidaComponent implements OnInit {
               this.reservaService.getReserva().subscribe(
                 result => {
                  this.reservas = result.data;
-                 console.log('datos de reserva' , this.reservas);
+                //   this.add()
+                //  console.log('datos de reserva' , this.reservas);
+                //  console.log(this.add());
                 } ,
                 error => {
                   console.log(error as any);
