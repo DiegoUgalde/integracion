@@ -24,7 +24,7 @@
     "@ngx-lite/debounce-click": "^0.1.2",
     "angular-font-awesome": "^3.1.2",
     "auth0-js": "^9.10.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "4.1.1",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
