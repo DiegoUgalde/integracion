@@ -28,7 +28,7 @@
     "bootstrap": "4.1.1",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-bootstrap": "^4.3.0",
     "ngx-daterangepicker-material": "^2.1.2",
     "ngx-snackbar": "^2.0.1",
